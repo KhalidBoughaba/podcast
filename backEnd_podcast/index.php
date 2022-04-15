@@ -4,7 +4,10 @@
         <?php
         include("config.php");
     
-        if(isset($_POST['but_upload'])){
+        if(isset($_POST['publish'])){
+            
+
+            ################UPLOAD AUDIO###################
             $maxsize = 10485760; // 10MB
 
             $name = $_FILES['file']['name'];
@@ -58,7 +61,7 @@
 <br>
 
             <input type='file' name='file' />
-            <input type='submit' value='Upload' name='but_upload'>
+            <input type='submit' value='Publish' name='publish'>
         </form>
 
     </body>

@@ -14,7 +14,7 @@
         <div>
           
         <?php
-        $fetchVideos = mysqli_query($con, "SELECT * FROM videos ORDER BY id DESC");
+        $fetchVideos = mysqli_query($con, "SELECT * FROM speakers ORDER BY id DESC");
         while($row = mysqli_fetch_assoc($fetchVideos)){
             $location = $row['location'];
             

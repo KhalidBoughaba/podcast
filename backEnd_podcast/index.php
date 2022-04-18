@@ -5,11 +5,11 @@
         include("config.php");
     
         if(isset($_POST['publish'])){
-            
+            $speaker = $_POST['speaker'];
+            $title = $_POST['title'];
+            $category = $_POST['category'];
 
-            ################UPLOAD AUDIO###################
             $maxsize = 10485760; // 10MB
-
             $name = $_FILES['file']['name'];
             $target_dir = "audios/";
             $target_file = $target_dir . $_FILES["file"]["name"];
@@ -26,14 +26,20 @@
                 // Check file size
                 if(($_FILES['file']['size'] >= $maxsize) || ($_FILES["file"]["size"] == 0)) {
                     echo "File too large. File must be less than 10MB.";
+
                 }else{
                     // Upload
                     if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
                         // Insert record
-                        $query = "INSERT INTO speakers(name,location) VALUES('".$name."','".$target_file."')";
+                        $query = "INSERT INTO speakers(speaker, title, category, name,location) VALUES('".$speaker."','".$title."','".$category."','".$name."','".$target_file."')";
 
                         mysqli_query($con,$query);
-                        echo "Upload successfully.";
+                        $speaker=$title=$category=$name=$target_file="";
+                        $_POST['speaker']=$_POST['title']=$_POST['category']=$_POST['name']=$_POST['location']="";
+                        header("Location: index.php");
+                        
+                        var_dump($_POST);
+                        echo "Data Insert successfully.";
                     }
                 }
 

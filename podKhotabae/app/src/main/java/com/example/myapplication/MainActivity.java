@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -9,10 +10,15 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
+import java.util.*;
+
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager2 viewPager2;
 
     private ActivityMainBinding binding;
 
@@ -32,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        viewPager2 = findViewById(R.id.viewPagerImageSlider);
+        List<SliderItem> sliderItem = new ArrayList<>();
     }
 
 }

@@ -12,11 +12,11 @@ import java.util.List;
 
 public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder> {
 
-    private List<SliderItem> sliderItem;
+    private List<SliderItem> sliderItems;
     private ViewPager2 viewPager2;
 
-    public SliderAdapter(List<SliderItem> sliderItem, ViewPager2 viewPager2) {
-        this.sliderItem = sliderItem;
+    public SliderAdapter(List<SliderItem> sliderItems, ViewPager2 viewPager2) {
+        this.sliderItems = sliderItems;
         this.viewPager2 = viewPager2;
     }
 
@@ -34,12 +34,15 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
 
     @Override
     public void onBindViewHolder(@NonNull SliderViewHolder holder, int position) {
-    holder.setImage(sliderItem.get(position));
+    holder.setImage(sliderItems.get(position));
+    if(position == sliderItems.size() - 2) {
+        viewPager2.post(runnable);
+    }
     }
 
     @Override
     public int getItemCount() {
-        return sliderItem.size();
+        return sliderItems.size();
     }
 
     class SliderViewHolder extends RecyclerView.ViewHolder{
@@ -51,8 +54,16 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
         }
 
         void setImage(SliderItem sliderItem) {
+
             imageView.setImageResource(sliderItem.getImage());
         }
     }
 
+    private Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            sliderItems.addAll(sliderItems);
+            notifyDataSetChanged();
+        }
+    };
 }

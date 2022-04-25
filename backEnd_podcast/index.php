@@ -9,6 +9,30 @@
             $title = $_POST['title'];
             $category = $_POST['category'];
 
+            ######## Upload Image ########
+            if($_FILES["image"]["error"] === 4){
+                echo "No image selected";
+            }else{
+                $img_name = $_FILES['image']['name'];
+                $image_size = $_FILES["image"]["size"];
+                $tmp_img_name = $_FILES['image']['tmp_name'];
+
+                $valid_image_extention = ['jpg', 'jpeg', 'png'];
+                $image_extention = explode('.', $img_name);
+                $image_extention = strtolower(end($image_extention));
+                if(!in_array($image_extention, $valid_image_extention)){
+                    echo "Invalid image extention";
+                }else if($image_size > 1000000){
+                    echo "Image size is too large";
+                }else{
+                    $newImageName = uniqid();
+                    $newImageName .= '.' . $image_extention;
+                    
+                    move_uploaded_file($tmp_img_name, 'images/' , $newImageName);
+                    $query = "INSERT INTO speakers VALUES('', '$newImageName')";
+                }
+
+            ######## Uploading Video ########
             $maxsize = 10485760; // 10MB
             $name = $_FILES['file']['name'];
             $target_dir = "audios/";
@@ -48,6 +72,7 @@
             }
         
         }
+    }
         
         ?>
     </head>
@@ -65,9 +90,22 @@
         <input type="text" name="category">
 <br>
 <br>
+        <label>Sub Category</label>
+        <select name="category">
+            <option value="friday_khutbah">خطبة الجمعة</option>
+            <option value="Lessons_lectures">دروس ومحاضرات</option>
+            <option value="audio_influential">مقاطع مؤثرة</option>
+        </select>
+<br>
+<br>
+        <label>Upload Audio</label>
+        <input type='file' name='file' />
+<br>
+<br>
+        <label>Upload Image</label>
+        <input type='file' name='image' accept=".jpg, .jpeg, .png" />
 
-            <input type='file' name='file' />
-            <input type='submit' value='Publish' name='publish'>
+        <input type='submit' value='Publish' name='publish'>
         </form>
 
     </body>

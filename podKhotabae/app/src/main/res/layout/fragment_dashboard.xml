@@ -21,17 +21,25 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/medhasanat"
+                android:layout_centerVertical="true"
                 android:padding="15dp"
-                android:layout_centerVertical="true"/>
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Category"
+                android:textSize="20sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/medhasanat"
-                android:padding="15dp"
+                android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"/>
+                android:padding="15dp"
+                android:src="@drawable/ic_search" />
 
         </RelativeLayout>
 

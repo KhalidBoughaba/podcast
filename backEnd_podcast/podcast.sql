@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2022 at 04:58 PM
+-- Generation Time: Apr 26, 2022 at 05:05 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -33,22 +33,11 @@ CREATE TABLE `speakers` (
   `location` varchar(255) NOT NULL,
   `speaker` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `category` varchar(255) NOT NULL
+  `category` varchar(255) NOT NULL,
+  `sub_category` varchar(255) NOT NULL,
+  `image` varchar(60) NOT NULL,
+  `create_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `speakers`
---
-
-INSERT INTO `speakers` (`id`, `name`, `location`, `speaker`, `title`, `category`) VALUES
-(1, 'Super Cow.mp3', 'audios/Super Cow.mp3', '', '', ''),
-(3, 'Eat Your Vegetables.mp3', 'audios/Eat Your Vegetables.mp3', '', '', ''),
-(4, 'Green Tea Audio.mp3', 'audios/Green Tea Audio.mp3', '', '', ''),
-(5, 'Man Injured Audio.mp3', 'audios/Man Injured Audio.mp3', '', '', ''),
-(6, 'Green Tea Audio.mp3', 'audios/Green Tea Audio.mp3', '', '', ''),
-(7, 'Man Injured MS I.mp3', 'audios/Man Injured MS I.mp3', '', '', ''),
-(9, 'Man Injured Audio.mp3', 'audios/Man Injured Audio.mp3', '', '', ''),
-(10, 'Man Injured Audio.mp3', 'audios/Man Injured Audio.mp3', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +57,7 @@ ALTER TABLE `speakers`
 -- AUTO_INCREMENT for table `speakers`
 --
 ALTER TABLE `speakers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

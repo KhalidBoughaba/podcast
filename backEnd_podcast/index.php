@@ -8,6 +8,7 @@
             $speaker = $_POST['speaker'];
             $title = $_POST['title'];
             $category = $_POST['category'];
+            $sub_category = $_POST['sub_category'];
 
             ######## Upload Image ########
             if($_FILES["image"]["error"] === 4){
@@ -28,10 +29,12 @@
                     $newImageName = uniqid();
                     $newImageName .= '.' . $image_extention;
                     
-                    move_uploaded_file($tmp_img_name, 'images/' , $newImageName);
-                    $query = "INSERT INTO speakers VALUES('', '$newImageName')";
+                    move_uploaded_file($tmp_img_name, 'images/' . $newImageName);
+                    $query = "INSERT INTO speakers(image) VALUES('$newImageName')";
+                    mysqli_query($con,$query);
+                    echo "Image uploaded";
                 }
-
+            }
             ######## Uploading Video ########
             $maxsize = 10485760; // 10MB
             $name = $_FILES['file']['name'];
@@ -55,14 +58,12 @@
                     // Upload
                     if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
                         // Insert record
-                        $query = "INSERT INTO speakers(speaker, title, category, name,location) VALUES('".$speaker."','".$title."','".$category."','".$name."','".$target_file."')";
+                        $query = "INSERT INTO speakers(speaker, title, category, sub_category, name,location) VALUES('".$speaker."','".$title."','".$category."','".$sub_category."','".$name."','".$target_file."')";
 
                         mysqli_query($con,$query);
                         $speaker=$title=$category=$name=$target_file="";
                         $_POST['speaker']=$_POST['title']=$_POST['category']=$_POST['name']=$_POST['location']="";
                         header("Location: index.php");
-                        
-                        var_dump($_POST);
                         echo "Data Insert successfully.";
                     }
                 }
@@ -71,7 +72,7 @@
                 echo "Invalid file extension.";
             }
         
-        }
+        
     }
         
         ?>
@@ -91,7 +92,7 @@
 <br>
 <br>
         <label>Sub Category</label>
-        <select name="category">
+        <select name="sub_category">
             <option value="friday_khutbah">خطبة الجمعة</option>
             <option value="Lessons_lectures">دروس ومحاضرات</option>
             <option value="audio_influential">مقاطع مؤثرة</option>

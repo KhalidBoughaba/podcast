@@ -26,12 +26,11 @@
                 }else if($image_size > 1000000){
                     echo "Image size is too large";
                 }else{
-                    $newImageName = uniqid();
-                    $newImageName .= '.' . $image_extention;
+                    $newImageName = $img_name;
                     
                     move_uploaded_file($tmp_img_name, 'images/' . $newImageName);
-                    $query = "INSERT INTO speakers(image) VALUES('$newImageName')";
-                    mysqli_query($con,$query);
+                    // $query = "INSERT INTO speakers(image) VALUES('$newImageName')";
+                    // mysqli_query($con,$query);
                     echo "Image uploaded";
                 }
             }
@@ -58,11 +57,11 @@
                     // Upload
                     if(move_uploaded_file($_FILES['file']['tmp_name'],$target_file)){
                         // Insert record
-                        $query = "INSERT INTO speakers(speaker, title, category, sub_category, name,location) VALUES('".$speaker."','".$title."','".$category."','".$sub_category."','".$name."','".$target_file."')";
+                        $query = "INSERT INTO speakers(speaker, title, category, sub_category, name,location, image) VALUES('".$speaker."','".$title."','".$category."','".$sub_category."','".$name."','".$target_file."','".$newImageName."')";
 
                         mysqli_query($con,$query);
-                        $speaker=$title=$category=$name=$target_file="";
-                        $_POST['speaker']=$_POST['title']=$_POST['category']=$_POST['name']=$_POST['location']="";
+                        // $speaker=$title=$category=$name=$target_file="";
+                        // $_POST['speaker']=$_POST['title']=$_POST['category']=$_POST['name']=$_POST['location']="";
                         header("Location: index.php");
                         echo "Data Insert successfully.";
                     }

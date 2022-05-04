@@ -3,10 +3,19 @@ package com.example.podchikh;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +55,8 @@ public class PlaylistFragment extends Fragment {
         return fragment;
     }
 
+    RecyclerView recview;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,11 +64,40 @@ public class PlaylistFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
+
+        public void processdata() {
+            Call<List<responsemodel>> call=apicontroller
+                                            .getInstance()
+                                            .getapi()
+                                            .getdata();
+
+            call.enqueue(new Callback<List<responsemodel>>() {
+                @Override
+                public void onResponse(Call<List<responsemodel>> call, Response<List<responsemodel>> response) {
+                    List<responsemodel> data=response.body();
+                    myadapter adapter=new myadapter(data);
+                    recview.setAdapter(adapter);
+                }
+
+                @Override
+                public void onFailure(Call<List<responsemodel>> call, Throwable t) {
+                    Toast.makeText(getContext(),t.toString(),Toast.LENGTH_LONG).show();
+                }
+            });
+        }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View v=inflater.inflate(R.layout.fragment_playlist, container, false);
+        recview =v.findViewById(R.id.recview);
+        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+        processdata();
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_playlist, container, false);
     }

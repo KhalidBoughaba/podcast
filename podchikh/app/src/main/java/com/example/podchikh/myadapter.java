@@ -11,14 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.List;
-
 public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
 
-    List<responsemodel> data;
+    model data[];
 
-    public myadapter(List<responsemodel> data) {
-
+    public myadapter(model[] data) {
         this.data = data;
     }
 
@@ -31,22 +28,23 @@ public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
 
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
-        holder.category.setText(data.get(position).getCategory());
-        Glide.with(holder.category.getContext()).load("https://podkhotabae.000webhostapp.com/backEnd_podcast/images/"+data.get(position).getImage()).into(holder.image);
+        holder.category.setText(data[position].getCategory());
+        Glide.with(holder.category.getContext()).load("https://podkhotabae.000webhostapp.com/backEnd_podcast/images/"+data[position].getImage()).into(holder.image);
     }
 
     @Override
     public int getItemCount() {
-
-        return data.size();
+        return data.length;
     }
 
     class myviewholder extends RecyclerView.ViewHolder{
+
         ImageView image;
         TextView category;
 
         public myviewholder(@NonNull View itemView) {
             super(itemView);
+
             image=itemView.findViewById(R.id.image);
             category=itemView.findViewById(R.id.category);
         }

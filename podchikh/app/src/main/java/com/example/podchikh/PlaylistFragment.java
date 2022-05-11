@@ -11,11 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import java.util.List;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,12 +33,17 @@ public class PlaylistFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private static final String url = "https://podkhotabae.000webhostapp.com/backEnd_podcast/api/getCategory.php";
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recview;
 
     public PlaylistFragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -55,8 +64,6 @@ public class PlaylistFragment extends Fragment {
         return fragment;
     }
 
-    RecyclerView recview;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,40 +72,53 @@ public class PlaylistFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+        //recview=(RecyclerView)getView().findViewById(R.id.recview);
+        //recview.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //processdata();
+
+
+
     }
 
-        public void processdata() {
-            Call<List<responsemodel>> call=apicontroller
-                                            .getInstance()
-                                            .getapi()
-                                            .getdata();
+    public void processdata(){
+        StringRequest request =new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
 
-            call.enqueue(new Callback<List<responsemodel>>() {
-                @Override
-                public void onResponse(Call<List<responsemodel>> call, Response<List<responsemodel>> response) {
-                    List<responsemodel> data=response.body();
-                    myadapter adapter=new myadapter(data);
-                    recview.setAdapter(adapter);
-                }
+                GsonBuilder builder=new GsonBuilder();
+                Gson gson=builder.create();
+                model data[]=gson.fromJson(response,model[].class);
 
-                @Override
-                public void onFailure(Call<List<responsemodel>> call, Throwable t) {
-                    Toast.makeText(getContext(),t.toString(),Toast.LENGTH_LONG).show();
-                }
-            });
+                myadapter adapter=new myadapter(data);
+                recview.setAdapter(adapter);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getContext(),error.toString(),Toast.LENGTH_LONG).show();
+            }
         }
+        );
+
+        RequestQueue queue = Volley.newRequestQueue(getContext());
+        queue.add(request);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View v=inflater.inflate(R.layout.fragment_playlist, container, false);
-        recview =v.findViewById(R.id.recview);
+        View view=inflater.inflate(R.layout.fragment_playlist, container, false);
+        recview=(RecyclerView)view.findViewById(R.id.recview);
         recview.setLayoutManager(new LinearLayoutManager(getContext()));
+
         processdata();
 
 
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_playlist, container, false);
+        return view;
+
+
     }
 }

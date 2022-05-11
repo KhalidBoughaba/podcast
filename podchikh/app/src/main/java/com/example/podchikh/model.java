@@ -1,12 +1,12 @@
 package com.example.podchikh;
 
-public class responsemodel {
+public class model {
     String id, category, image;
 
-    public responsemodel() {
+    public model() {
     }
 
-    public responsemodel(String id, String category, String image) {
+    public model(String id, String category, String image) {
         this.id = id;
         this.category = category;
         this.image = image;

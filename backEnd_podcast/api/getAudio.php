@@ -1,7 +1,7 @@
 <?php
 include("../config.php");
 
-$query="SELECT DISTINCT category,image FROM speakers";
+$query="SELECT DISTINCT title, location, speaker FROM speakers";
 
 $raw = mysqli_query($con,$query);
 

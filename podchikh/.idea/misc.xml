@@ -3,18 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/bg_player.xml" value="0.104" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/ic_audio_note.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/ic_category.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/ic_home.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/ic_playlist_play.xml" value="0.1" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/ic_ring.xml" value="0.104" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/item_selector.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/round_corner.xml" value="0.1" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/drawable/shadow.xml" value="0.104" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_audio.xml" value="0.1" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/activity_sub_category.xml" value="0.1796875" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/audio_row_item.xml" value="0.16666666666666666" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_audio.xml" value="0.14666666666666667" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_home.xml" value="0.1" />
-        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_playlist.xml" value="0.1" />
-        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/singlerowdesign.xml" value="0.16666666666666666" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_playlist.xml" value="0.14666666666666667" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/singlerowdesign.xml" value="0.22" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/subsinglerow.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/menu/item_menu.xml" value="0.22" />
       </map>
     </option>

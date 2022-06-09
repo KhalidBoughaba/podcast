@@ -53,6 +53,10 @@ public class AudioFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        //img_play.setOnClickListener{
+            //val animation=AnimationUtlis.loadAnimation(this@AudioFragment,R.anim.rotation)
+            //img_audio.startAnimation(animation)
+        //}
     }
 
     @Override

@@ -92,9 +92,9 @@
 <br>
         <label>Sub Category</label>
         <select name="sub_category">
-            <option value="friday_khutbah">خطبة الجمعة</option>
-            <option value="Lessons_lectures">دروس ومحاضرات</option>
-            <option value="audio_influential">مقاطع مؤثرة</option>
+            <option value="خطبة الجمعة">خطبة الجمعة</option>
+            <option value="دروس ومحاضرات">دروس ومحاضرات</option>
+            <option value="مقاطع مؤثرة">مقاطع مؤثرة</option>
         </select>
 <br>
 <br>

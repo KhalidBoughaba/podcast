@@ -1,7 +1,7 @@
 <?php
 include("../config.php");
 
-$query="SELECT DISTINCT category,image FROM speakers ";
+$query="SELECT DISTINCT category,image FROM speakers";
 
 $raw = mysqli_query($con,$query);
 
@@ -10,5 +10,4 @@ while($res=mysqli_fetch_array($raw)){
 }
 print(json_encode($data));
 
- 
 ?>

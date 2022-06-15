@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -36,7 +37,7 @@ public class PlaylistFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private static final String url = "https://podkhotabae.000webhostapp.com/backEnd_podcast/api/getCategory.php";
+    private static final String url = "https://podkhotabae.000webhostapp.com/backEnd_podcast/api/getSpeaker.php";
 
 
     // TODO: Rename and change types of parameters
@@ -48,7 +49,6 @@ public class PlaylistFragment extends Fragment {
         // Required empty public constructor
 
     }
-
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -100,6 +100,7 @@ public class PlaylistFragment extends Fragment {
 
         RequestQueue queue = Volley.newRequestQueue(getContext());
         queue.add(request);
+
     }
 
     @Override
@@ -107,11 +108,10 @@ public class PlaylistFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_playlist, container, false);
         recview=(RecyclerView)view.findViewById(R.id.recview);
-        recview.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        recview.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         processdata();
-
-
 
         // Inflate the layout for this fragment
         return view;

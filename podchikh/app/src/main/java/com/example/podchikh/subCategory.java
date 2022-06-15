@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class subCategory extends AppCompatActivity {
 
-    private static final String url="https://podkhotabae.000webhostapp.com/backEnd_podcast/api/getSubCategorey.php";
+    private static final String url="https://podkhotabae.000webhostapp.com/backEnd_podcast/api/getCategory.php";
 
     RecyclerView srecview;
 

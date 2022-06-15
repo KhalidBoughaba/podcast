@@ -7,7 +7,6 @@
     android:background="@drawable/back_category"
     android:orientation="vertical"
     tools:context=".PlaylistFragment">
-
     <TextView
         android:id="@+id/tite_category"
         android:layout_width="wrap_content"
@@ -25,6 +24,7 @@
         android:layout_width="375dp"
         android:layout_height="match_parent"
         android:layout_below="@id/tite_category"
+        android:layout_centerInParent="true"
         android:layout_marginTop="43dp" />
 
 </RelativeLayout>

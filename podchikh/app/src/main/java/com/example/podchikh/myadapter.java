@@ -3,6 +3,7 @@ package com.example.podchikh;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,7 @@ public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
         TextView category;
         CardView card;
 
+
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
@@ -64,6 +66,8 @@ public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
                 public void onClick(View view) {
                     Intent intent = new Intent();
                     intent.setClass(view.getContext(), subCategory.class);
+                    
+
                     context.startActivity(intent);
                 }
             });

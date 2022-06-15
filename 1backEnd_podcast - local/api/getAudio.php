@@ -1,7 +1,7 @@
 <?php
 include("../config.php");
 
-$query="SELECT DISTINCT title, location, speaker FROM speakers";
+$query="SELECT * FROM audio";
 
 $raw = mysqli_query($con,$query);
 

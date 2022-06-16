@@ -36,7 +36,7 @@ public class subCategory extends AppCompatActivity {
         srecview=(RecyclerView)findViewById(R.id.srecview);
         srecview.setLayoutManager(new LinearLayoutManager(this));
 
-        image img = (img)findViewById(R.id.img_speaker);
+        //image img = (img)findViewById(R.id.img_speaker);
 
         processdata();
     }

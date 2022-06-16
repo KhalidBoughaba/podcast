@@ -64,9 +64,13 @@ public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
             card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    image=itemView.findViewById(R.id.image);
+
                     Intent intent = new Intent();
                     intent.setClass(view.getContext(), subCategory.class);
-                    
+                    Bundle bundle = new Bundle();
+                    bundle.putString("image", image.getContext().toString());
+                    intent.putExtras(bundle);
 
                     context.startActivity(intent);
                 }

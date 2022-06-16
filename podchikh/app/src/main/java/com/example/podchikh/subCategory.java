@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -36,7 +37,11 @@ public class subCategory extends AppCompatActivity {
         srecview=(RecyclerView)findViewById(R.id.srecview);
         srecview.setLayoutManager(new LinearLayoutManager(this));
 
-        //image img = (img)findViewById(R.id.img_speaker);
+        ImageView img = (ImageView) findViewById(R.id.image);
+        Bundle bundle=getIntent().getExtras();
+        String image=bundle.getString("image");
+
+
 
         processdata();
     }

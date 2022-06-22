@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/nav_home"
+        android:title="الرئيسية"
+        android:icon="@drawable/ic_home" />
+
+    <item android:id="@+id/nav_audio"
+          android:title="مقطع صوتي"
+        android:icon="@drawable/ic_audio_note"/>
+
+    <item android:id="@+id/nav_playlist"
+        android:title="التصنيفات"
+        android:icon="@drawable/ic_playlist_play"/>
+
+
+</menu>

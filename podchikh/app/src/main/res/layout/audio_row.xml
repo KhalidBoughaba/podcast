@@ -10,20 +10,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
+        android:layout_margin="0dp"
         android:orientation="vertical"
         android:outlineAmbientShadowColor="@color/black">
-        
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="@drawable/bg_blue">
+            android:background="@drawable/bg_blue1"
+            >
 
             <TextView
                 android:id="@+id/sub_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="22dp"
                 android:padding="25dp"
                 android:text="Name"
                 android:textColor="@color/white"

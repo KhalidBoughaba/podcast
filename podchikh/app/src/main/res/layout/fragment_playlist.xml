@@ -7,6 +7,7 @@
     android:background="@drawable/back_category"
     android:orientation="vertical"
     tools:context=".PlaylistFragment">
+
     <TextView
         android:id="@+id/tite_category"
         android:layout_width="wrap_content"
@@ -14,7 +15,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:text="playlist"
+        android:text="قائمة الدعاة"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold" />

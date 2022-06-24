@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new HomeFragment()).commit();
-        navigationView.setSelectedItemId(R.id.nav_home);
+        //navigationView.setSelectedItemId(R.id.nav_home);
 
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
                 switch (item.getItemId()){
-                    case R.id.nav_home:
-                        fragment = new HomeFragment();
-                        break;
+                    //case R.id.nav_home:
+                        //fragment = new HomeFragment();
+                        //break;
 
                     case R.id.nav_audio:
                         fragment = new AudioFragment();

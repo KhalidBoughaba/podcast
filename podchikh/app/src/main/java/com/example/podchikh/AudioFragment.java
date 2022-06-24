@@ -69,7 +69,7 @@ public class AudioFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_audio, container, false);
-        bPlay=view.findViewById(R.id.play);
+/*        bPlay=view.findViewById(R.id.play);
         bPause=view.findViewById(R.id.play);
         bNext=view.findViewById(R.id.next);
         bPre=view.findViewById(R.id.pre);
@@ -78,9 +78,23 @@ public class AudioFragment extends Fragment {
         bPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                mp.start();
             }
         });
+
+        bNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mp.stop();
+            }
+        });
+
+        bPre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mp.stop();
+            }
+        });*/
         return view;
     }
 }

@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/activity_sub_category.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/audio_list.xml" value="0.17552083333333332" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/audio_row.xml" value="0.17552083333333332" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_audio.xml" value="0.22" />
+        <entry key="..\:/xampp/htdocs/podcast/podchikh/app/src/main/res/layout/fragment_playlist.xml" value="0.1" />
         <entry key="..\:/xampp/htdocs/podcast/podchikh_last/podchikh/app/src/main/res/layout/fragment_audio.xml" value="0.15942028985507245" />
       </map>
     </option>

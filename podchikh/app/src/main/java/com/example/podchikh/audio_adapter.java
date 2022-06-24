@@ -3,6 +3,7 @@ package com.example.podchikh;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
+import java.io.IOException;
 
 public class audio_adapter extends RecyclerView.Adapter<audio_adapter.myviewholder> {
 
@@ -77,6 +80,22 @@ public class audio_adapter extends RecyclerView.Adapter<audio_adapter.myviewhold
                     intent.putExtras(bundle);*/
 
                    // context.startActivity(intent);
+
+                    /*MediaPlayer mediaPlayer = new MediaPlayer();
+                    try{
+                        mediaPlayer.setDataSource("https://podkhotabae.000webhostapp.com/backEnd/audios/%d8%a7%d8%b1%d8%ad%d9%85%d9%88%d9%87%d9%85%20%d9%83%d9%8a%20%d9%8a%d8%b1%d8%ad%d9%85%d9%83%d9%85%20%d9%85%d9%86%20%d9%81%d9%8a%20%d8%a7%d9%84%d8%b3%d9%85%d8%a7%d8%a1%20!%20%d9%83%d9%84%d9%85%d8%a7%d8%aa%20%d8%aa%d8%a8%d9%83%d9%8a%20%d8%a7%d9%84%d8%ad%d8%ac%d8%b1%20%d9%84%d9%84%d8%af%d8%a7%d8%b9%d9%8a%d8%a9%20!%20%d9%85%d8%ad%d9%85%d9%88%d8%af%20%d8%a7%d9%84%d8%ad%d8%b3%d9%86%d8%a7%d8%aa.mp3");
+                        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                            @Override
+                            public void onPrepared(MediaPlayer mediaPlayer) {
+                                mediaPlayer.start();
+                            }
+                        });
+
+
+                    }catch (IOException e){
+                        e.printStackTrace();
+                    }*/
+
                 }
             });
         }

@@ -10,16 +10,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link AudioFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class AudioFragment extends Fragment {
-
     Button bPlay, bPause, bNext, bPre;
     MediaPlayer mp;
 
+    Boolean v = false;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,6 +75,28 @@ public class AudioFragment extends Fragment {
         //}
     }
 
+    /*public ArrayList<String> getFromBackend(){
+
+        ArrayList lst = new ArrayList<String>();
+        String url = "https://podkhotabae.000webhostapp.com/backEnd/api/getAudioBySpeaker.php?id=1&uid=2";
+        RequestQueue rq = Volley.newRequestQueue(getContext());
+        StringRequest sr = new StringRequest(url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                lst.add(response);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        rq.add(sr);
+
+        return lst;
+    }*/
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -78,6 +111,7 @@ public class AudioFragment extends Fragment {
         bPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+<<<<<<< HEAD
                 mp.start();
             }
         });
@@ -95,6 +129,18 @@ public class AudioFragment extends Fragment {
                 mp.stop();
             }
         });*/
+=======
+                if(v){
+                    mp.stop();
+                    v = false;
+                }else{
+                    mp.start();
+                    v = true;
+                }
+            }
+        });
+
+>>>>>>> 540c8c6604376002deaeedff15184813d31fb0d4
         return view;
     }
 }
